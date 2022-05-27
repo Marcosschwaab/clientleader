@@ -1,0 +1,132 @@
+<p>
+  <strong>Name complete:</strong>
+  <%= @client.name_complete %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <strong>Cel:</strong>
+  <%= @client.cel %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @client.adress %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @client.city %>
+</p>
+
+<p>
+  <strong>Cpf or rg:</strong>
+  <%= @client.cpf_cnpj %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @client.cep %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @client.district %>
+</p>
+ <td><%= link_to "NOVA ORDEM", :controller => "orders", :action => "new", :id => @client.id, :name=> @client.name_complete %></td><br />
+
+
+
+
+
+ <%- unless @client.orders.empty? -%>
+
+
+<table class="table">
+	  <thead>
+  <tr>
+	<th>Ordem</th>
+	<th>Status</th>
+    <th>Data de Entrada</th>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Defeito Relatado</th>
+    <th>Preço</th>
+    <th>Setor</th>
+      <th>Setor</th>
+	  </thead>
+  </tr>
+	<%- @orders.each do |order| -%>
+<tr>
+
+	<td style="background-color:<%= order.stat.color%>;"><h5 class="mb-0"><%= link_to order.id, order %></h5></td>
+	<td style="background-color:<%= order.stat.color%>;">
+	<% stats = order.stat.name.capitalize %>
+		<% if stats == "Aberta" %>
+		<div id="aberta">
+    <button type="button" class="btn-sm btn-danger"><%=  order.stat.name %></button>
+		</div>
+		<% else %>  
+		<div id="fechada">
+    <button type="button" class="btn-sm btn-success"><%=  order.stat.name %></button>
+		</div>
+		<% end %></td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%= order.created_at.strftime("%d/%m/%Y")%></h6><p class="text-muted mb-0">as <%= order.created_at.strftime("%H:%M:%S") %></p </td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"> <%= link_to order.mark.name, order %> </h6> </td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%= link_to order.model, order %></h6></td>
+    <td style="background-color:<%= order.stat.color%>;"><small><%= link_to order.bug, order %></small></td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%=  order.price %></h6></td>
+ <td style="background-color:<%= order.stat.color%>;">
+
+<% if order.sector_id == nil %>
+<p> - </p>
+ <% else %>
+<%=h order.sector.name %>
+<%end%>
+
+    </td>
+    
+    <td style="background-color:<%= order.stat.color%>";>
+
+    <span class="<%= order.progre.color%>"><h6 class="mb-0"><%= order.progre.name %></h6></span></td>
+     <td style="background-color:<%= order.stat.color%>;"><%= link_to 'Edit', edit_order_path(order), :class => "btn btn-primary" %></td>
+     <td style="background-color:<%= order.stat.color%>;"><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
+
+  </td>
+
+		<%- end -%>
+	  </tr>
+
+
+<%- end -%>
+	<td><b>Total R$ <%=  @client.orders.sum(:price)  %></b></td>
+	</table>
+
+	<br />
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
+
+
+
+
+
+
+ <span class="badge bg-dark-lt">20</span>
+ <td><span class="badge bg-warning-lt">30</span></td>
+<td><span class="badge bg-secondary-lt">35</span></td>
+<span class="badge bg-info-lt">50</span></td>
+<td><span class="badge bg-primary-lt">14</span></td>
+  <td><span class="badge bg-success-lt">75</span></td>
+<td><span class="badge bg-danger-lt">65</span></td>
+<td><span class="badge bg-light-lt">65</span></td>

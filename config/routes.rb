@@ -1,0 +1,14 @@
+Rails.application.routes.draw do
+  resources :stats
+  resources :sectors
+  resources :progres
+  resources :orders
+  resources :marks
+  resources :equipaments
+  resources :accessories
+  resources :clients
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+end

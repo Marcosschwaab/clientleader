@@ -1,0 +1,71 @@
+<p style="color: green"><%= notice %></p>
+
+<p id="notice"><%= notice %></p>
+<%= render 'orders/search_form' %>
+<h1>Orders</h1>
+
+
+<table class="table">
+	  <thead>
+  <tr>
+	<th>Ordem</th>
+	<th>Status</th>
+    <th>Data de Entrada</th>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Defeito Relatado</th>
+    <th>Preço</th>
+    <th>Setor</th>
+      <th>Setor</th>
+	  </thead>
+  </tr>
+	<%- @orders.each do |order| -%>
+<tr>
+
+	<td style="background-color:<%= order.stat.color%>;"><h5 class="mb-0"><%= link_to order.id, order %></h5></td>
+	<td style="background-color:<%= order.stat.color%>;">
+	<% stats = order.stat.name.capitalize %>
+		<% if stats == "Aberta" %>
+		<div id="aberta">
+    <button type="button" class="btn-sm btn-danger"><%=  order.stat.name %></button>
+		</div>
+		<% else %>  
+		<div id="fechada">
+    <button type="button" class="btn-sm btn-success"><%=  order.stat.name %></button>
+		</div>
+		<% end %></td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%= order.created_at.strftime("%d/%m/%Y")%></h6><p class="text-muted mb-0">as <%= order.created_at.strftime("%H:%M:%S") %></p </td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"> <%= link_to order.mark.name, order %> </h6> </td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%= link_to order.model, order %></h6></td>
+    <td style="background-color:<%= order.stat.color%>;"><small><%= link_to order.bug, order %></small></td>
+    <td style="background-color:<%= order.stat.color%>;"><h6 class="mb-0"><%=  order.price %></h6></td>
+ <td style="background-color:<%= order.stat.color%>;">
+
+<% if order.sector_id == nil %>
+<p> - </p>
+ <% else %>
+<%=h order.sector.name %>
+<%end%>
+
+    </td>
+    
+    <td style="background-color:<%= order.stat.color%>";>
+
+    <span class="<%= order.progre.color%>"><h6 class="mb-0"><%= order.progre.name %></h6></span></td>
+     <td style="background-color:<%= order.stat.color%>;"><%= link_to image_tag(('pencil-square.svg'), :class => 'filter-whithe'), edit_order_path(order), :class => "btn btn-secondary" %></td>
+     <td style="background-color:<%= order.stat.color%>;"><%= link_to image_tag('x-square-fill.svg'), @order, method: :delete, :class => "btn btn-danger"%></td>
+   <td><%= button_to "Delete", order, method: :delete, :class => "btn btn-danger" %></td>
+  
+  </td>
+
+		<%- end -%>
+	  </tr>
+  </tbody>
+</table>
+<%# Render the navigation bar in your views %>
+<%# Use it in your views %>
+<%== pagy_nav(@pagy) %>
+<br>
+
+<%= link_to 'New Order', new_order_path %>
+

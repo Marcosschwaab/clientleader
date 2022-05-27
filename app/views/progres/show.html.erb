@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @progre %>
+
+<div>
+  <%= link_to "Edit this progre", edit_progre_path(@progre) %> |
+  <%= link_to "Back to progres", progres_path %>
+
+  <%= button_to "Destroy this progre", @progre, method: :delete %>
+</div>
