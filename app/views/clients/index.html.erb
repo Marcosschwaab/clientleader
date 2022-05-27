@@ -27,7 +27,7 @@
        <td><h5 class="mb-0"><%= link_to client.name_complete, client %></h5><p class="text-muted mb-0">desde <%= client.created_at.strftime("%m/%Y") %></p></td>
     <td><h6 class="mb-0"><%= link_to client.email, client %></h6></td>
   <td><h6 class="mb-0"> <%= client.phone %> </h6><small>Contato</small></td>
-    <td><h6 class="mb-0"><%= link_to client.adress, client %></h6><small><%= client.district %></small></td>
+    <td><h6 class="mb-0"><%= link_to client.address, client %></h6><small><%= client.district %></small></td>
     <td><h6 class="mb-0"><%= link_to client.city, client %></h6></td>
 
         <td><%= link_to 'Edit', edit_client_path(client), :class => "btn btn-primary" %></td>
