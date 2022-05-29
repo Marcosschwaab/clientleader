@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_020619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "accessories_orders", charset: "utf8mb4", force: :cascade do |t|
+  create_table "accessories_orders", id: false, charset: "utf8mb4", force: :cascade do |t|
     t.integer "accessory_id"
     t.integer "order_id"
     t.datetime "created_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_020619) do
     t.string "email"
     t.string "phone"
     t.string "cel"
-    t.string "adress"
+    t.string "address"
     t.string "city"
     t.string "cpf_cnpj"
     t.string "cep"
