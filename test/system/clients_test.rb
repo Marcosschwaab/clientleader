@@ -14,7 +14,7 @@ class ClientsTest < ApplicationSystemTestCase
     visit clients_url
     click_on "New client"
 
-    fill_in "Adress", with: @client.adress
+    fill_in "Address", with: @client.address
     fill_in "Cel", with: @client.cel
     fill_in "Cep", with: @client.cep
     fill_in "City", with: @client.city
@@ -33,7 +33,7 @@ class ClientsTest < ApplicationSystemTestCase
     visit client_url(@client)
     click_on "Edit this client", match: :first
 
-    fill_in "Adress", with: @client.adress
+    fill_in "Address", with: @client.address
     fill_in "Cel", with: @client.cel
     fill_in "Cep", with: @client.cep
     fill_in "City", with: @client.city

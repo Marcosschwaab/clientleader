@@ -26,7 +26,11 @@
 
   <p>
     <strong>Accessory:</strong>
-    <%= order.accessory_id %>
+    <% for accessory in @order.accessories %>
+    | <%= accessory.name %> |
+    <% end %>
+
+
   </p>
 
   <p>

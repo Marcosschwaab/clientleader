@@ -4,7 +4,9 @@ class ClientsController < ApplicationController
   # GET /clients or /clients.json
   def index
     @q = Client.ransack(params[:q])
-   @pagy, @clients = pagy(@q.result(distinct: true))
+    @pagy, @clients = pagy(@q.result(distinct: true))
+
+    
   end
 
   # GET /clients/1 or /clients/1.json
@@ -67,6 +69,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:name_complete, :email, :phone, :cel, :adress, :city, :cpf_cnpj, :cep, :district)
+      params.require(:client).permit(:name_complete, :email, :phone, :cel, :address, :city, :cpf_cnpj, :cep, :district)
     end
 end

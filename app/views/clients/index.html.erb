@@ -8,7 +8,7 @@
 <%= link_to 'Novo Cliente', new_client_path, :class => "btn btn-success" %>
 </div>
 </br>
-
+  <%= turbo_frame_tag 'results', target: '_top', data: { turbo_action: 'advance' } do %>
 <table class="table">
   <thead>
     <tr>
@@ -22,7 +22,9 @@
     </tr>
   </thead>
 
+
   <tbody>
+
     <% @clients.each do |client| %>
        <td><h5 class="mb-0"><%= link_to client.name_complete, client %></h5><p class="text-muted mb-0">desde <%= client.created_at.strftime("%m/%Y") %></p></td>
     <td><h6 class="mb-0"><%= link_to client.email, client %></h6></td>
@@ -34,7 +36,9 @@
         <td><%= button_to "Delete", client, method: :delete, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
+     
   </tbody>
+     <% end %>
 </table>
 
 <%# Render the navigation bar in your views %>

@@ -4,7 +4,6 @@ class CreateAccessoriesOrders < ActiveRecord::Migration[7.0]
       t.integer :accessory_id
       t.integer :order_id
 
-      t.timestamps
     end
   end
 end

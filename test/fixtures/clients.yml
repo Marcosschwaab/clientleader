@@ -5,7 +5,7 @@ one:
   email: MyString
   phone: MyString
   cel: MyString
-  adress: MyString
+  address: MyString
   city: MyString
   cpf_cnpj: MyString
   cep: MyString
@@ -16,7 +16,7 @@ two:
   email: MyString
   phone: MyString
   cel: MyString
-  adress: MyString
+  address: MyString
   city: MyString
   cpf_cnpj: MyString
   cep: MyString

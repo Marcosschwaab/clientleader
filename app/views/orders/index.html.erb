@@ -4,7 +4,7 @@
 <%= render 'orders/search_form' %>
 <h1>Orders</h1>
 
-
+  <%= turbo_frame_tag 'results', target: '_top', data: { turbo_action: 'advance' } do %>
 <table class="table">
 	  <thead>
   <tr>
@@ -61,6 +61,7 @@
 		<%- end -%>
 	  </tr>
   </tbody>
+     <% end %>
 </table>
 <%# Render the navigation bar in your views %>
 <%# Use it in your views %>

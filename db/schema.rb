@@ -11,20 +11,18 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_05_18_020619) do
-  create_table "accessories", charset: "utf8mb4", force: :cascade do |t|
+  create_table "accessories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "accessories_orders", id: false, charset: "utf8mb4", force: :cascade do |t|
+  create_table "accessories_orders", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "accessory_id"
     t.integer "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "clients", charset: "utf8mb4", force: :cascade do |t|
+  create_table "clients", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name_complete"
     t.string "email"
     t.string "phone"
@@ -38,19 +36,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_020619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "equipaments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "equipaments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "marks", charset: "utf8mb4", force: :cascade do |t|
+  create_table "marks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", charset: "utf8mb4", force: :cascade do |t|
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "client_id"
     t.date "date"
     t.integer "mark_id"
@@ -70,20 +68,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_020619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "progres", charset: "utf8mb4", force: :cascade do |t|
+  create_table "progres", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sectors", charset: "utf8mb4", force: :cascade do |t|
+  create_table "sectors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "stats", charset: "utf8mb4", force: :cascade do |t|
+  create_table "stats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "color"
     t.datetime "created_at", null: false
